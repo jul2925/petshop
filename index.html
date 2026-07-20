@@ -2663,6 +2663,9 @@ tr:hover td {
     if(type==='employee')return DB.nextEmployeeId++;
     if(type==='user')return DB.nextUserId++;
     if(type==='sale')return DB.nextSaleId++;
+    if(type==='client')return DB.nextClientId++;
+    if(type==='bath')return DB.nextBathId++;
+    if(type==='expense')return DB.nextExpenseId++;
   }
   function logActivity(action,detail){
     DB.activityLog.unshift({
