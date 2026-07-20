@@ -2078,11 +2078,7 @@ tr:hover td {
       {id:4,name:'Ana Costa',role:'Caixa',shift:'Noite',salary:2200,active:true,phone:'(11)99999-4444'},
       {id:5,name:'Pedro Souza',role:'Repositor',shift:'Manha',salary:2000,active:false,phone:'(11)99999-5555'}
     ],
-    users:[
-      {id:1,username:'admin',password:'admin123',name:'Administrador Geral',type:'admin',active:true},
-      {id:2,username:'func',password:'func123',name:'Funcionario Teste',type:'func',active:true},
-      {id:3,username:'cliente',password:'cli123',name:'Cliente Teste',type:'cliente',active:true}
-    ],
+    users:[],
     clients:[
       {id:1,name:'Joao Pereira',phone:'(11)98888-1001',cpf:'123.456.789-00',email:'joao@email.com',address:'Rua das Flores, 100 - SP',active:true,dogs:[]},
       {id:2,name:'Ana Beatriz',phone:'(11)98888-1002',cpf:'987.654.321-00',email:'ana@email.com',address:'Av. Brasil, 200 - SP',active:true,dogs:[{name:'Rex',breed:'Labrador',age:3,color:'Dourado'},{name:'Luna',breed:'Poodle',age:2,color:'Branco'}]},
@@ -2171,8 +2167,9 @@ tr:hover td {
 
   var PetShopDB = {
     data: null,
+    token: null,
     config: {
-      type: 'shared', // 'local', 'remote', or 'shared'
+      type: 'shared',
       key: 'petshoppradoDB',
       url: '',
       sharedUrl: '/api',
@@ -2181,7 +2178,6 @@ tr:hover td {
       savedPassword: ''
     },
     
-    // In-memory decrypted password
     password: '',
 
     loadConfig: function() {
@@ -2191,19 +2187,85 @@ tr:hover td {
           this.config = Object.assign(this.config, JSON.parse(saved));
         } catch (e) {}
       }
+      var savedToken = localStorage.getItem('petshoppradoJWT');
+      if (savedToken) this.token = savedToken;
     },
 
     saveConfig: function() {
       localStorage.setItem('petshoppradoDB_config', JSON.stringify(this.config));
+      if (this.token) {
+        localStorage.setItem('petshoppradoJWT', this.token);
+      } else {
+        localStorage.removeItem('petshoppradoJWT');
+      }
+    },
+
+    authHeaders: function() {
+      var headers = { 'Content-Type': 'application/json' };
+      if (this.token) headers['Authorization'] = 'Bearer ' + this.token;
+      return headers;
+    },
+
+    login: function(username, password, callback) {
+      var self = this;
+      fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username, password: password })
+      })
+      .then(function(res) { return res.json().then(function(d) { return { ok: res.ok, data: d }; }); })
+      .then(function(result) {
+        if (!result.ok) {
+          if (callback) callback(new Error(result.data.error || 'Login falhou'));
+          return;
+        }
+        self.token = result.data.token;
+        self.saveConfig();
+        if (callback) callback(null, result.data.user);
+      })
+      .catch(function(err) {
+        if (callback) callback(err);
+      });
+    },
+
+    validateToken: function(callback) {
+      var self = this;
+      if (!this.token) {
+        if (callback) callback(new Error('Nenhum token'));
+        return;
+      }
+      fetch('/api/auth/validate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: this.token })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(result) {
+        if (result.valid) {
+          if (callback) callback(null, result.user);
+        } else {
+          self.token = null;
+          self.saveConfig();
+          if (callback) callback(new Error('Token invalido'));
+        }
+      })
+      .catch(function(err) {
+        if (callback) callback(err);
+      });
+    },
+
+    logout: function() {
+      this.token = null;
+      this.data = null;
+      this.saveConfig();
+      localStorage.removeItem('petshoppradoSession');
     },
 
     init: function(callback) {
       this.loadConfig();
-      
       if (this.config.hasPassword && this.config.rememberPassword && this.config.savedPassword) {
         this.password = this.config.savedPassword;
       }
-      
       this.load(callback);
     },
 
@@ -2211,42 +2273,43 @@ tr:hover td {
       var self = this;
       
       if (this.config.type === 'shared') {
-        // Modo compartilhado - usa servidor local
-        fetch(this.config.sharedUrl + '/load')
-          .then(function(res) {
-            if (!res.ok) throw new Error("Servidor retornou erro " + res.status);
-            return res.json();
-          })
-          .then(function(data) {
-            if (data && data.products) {
-              self.data = data;
-            } else {
-              self.data = Object.assign({}, DEFAULT_DB);
-            }
-            if (callback) callback();
-          })
-          .catch(function(err) {
-            console.warn("Servidor compartilhado indisponivel, usando localStorage:", err.message);
-            // Fallback para localStorage
-            self.config.type = 'local';
-            var text = localStorage.getItem(self.config.key);
-            self.handleLoadedText(text, callback);
-          });
-      } else if (this.config.type === 'remote') {
-        fetch(this.config.url)
-          .then(function(res) {
-            if (!res.ok) throw new Error("API retornou código de erro " + res.status);
-            return res.text();
-          })
-          .then(function(text) {
-            self.handleLoadedText(text, callback);
-          })
-          .catch(function(err) {
-            console.error("Erro ao carregar banco de dados remoto:", err);
-            alert("Erro ao carregar banco de dados remoto: " + err.message + "\n\nO sistema inicializará com dados padrão (modo leitura).");
+        fetch(this.config.sharedUrl + '/load', {
+          headers: this.authHeaders()
+        })
+        .then(function(res) {
+          if (!res.ok) throw new Error("Servidor retornou erro " + res.status);
+          return res.json();
+        })
+        .then(function(data) {
+          if (data && data.products) {
+            self.data = data;
+          } else {
             self.data = Object.assign({}, DEFAULT_DB);
-            if (callback) callback();
-          });
+          }
+          if (callback) callback();
+        })
+        .catch(function(err) {
+          console.warn("Servidor compartilhado indisponivel, usando localStorage:", err.message);
+          self.config.type = 'local';
+          var text = localStorage.getItem(self.config.key);
+          self.handleLoadedText(text, callback);
+        });
+      } else if (this.config.type === 'remote') {
+        fetch(this.config.url, {
+          headers: this.authHeaders()
+        })
+        .then(function(res) {
+          if (!res.ok) throw new Error("API retornou codigo de erro " + res.status);
+          return res.text();
+        })
+        .then(function(text) {
+          self.handleLoadedText(text, callback);
+        })
+        .catch(function(err) {
+          console.error("Erro ao carregar banco de dados remoto:", err);
+          self.data = Object.assign({}, DEFAULT_DB);
+          if (callback) callback();
+        });
       } else {
         var text = localStorage.getItem(this.config.key);
         this.handleLoadedText(text, callback);
@@ -2315,12 +2378,9 @@ tr:hover td {
       }
       
       if (this.config.type === 'shared') {
-        // Modo compartilhado - salva no servidor local
         fetch(this.config.sharedUrl + '/save', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          headers: this.authHeaders(),
           body: dataStr
         })
         .then(function(res) {
@@ -2328,7 +2388,6 @@ tr:hover td {
           return res.json();
         })
         .then(function() {
-          // Tambem salva no localStorage como backup
           try {
             localStorage.setItem(self.config.key, payload);
             localStorage.setItem(self.config.key + 'Ver', '7');
@@ -2337,7 +2396,6 @@ tr:hover td {
         })
         .catch(function(err) {
           console.warn("Erro ao salvar no servidor compartilhado:", err.message);
-          // Fallback: salva apenas localmente
           try {
             localStorage.setItem(self.config.key, payload);
             localStorage.setItem(self.config.key + 'Ver', '7');
@@ -2349,13 +2407,11 @@ tr:hover td {
       } else if (this.config.type === 'remote') {
         fetch(this.config.url, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          headers: this.authHeaders(),
           body: payload
         })
         .then(function(res) {
-          if (!res.ok) throw new Error("API retornou código de erro " + res.status);
+          if (!res.ok) throw new Error("API retornou codigo de erro " + res.status);
           if (callback) callback(null);
         })
         .catch(function(err) {
@@ -2579,11 +2635,7 @@ tr:hover td {
       {id:4,name:'Ana Costa',role:'Caixa',shift:'Noite',salary:2200,active:true,phone:'(11)99999-4444'},
       {id:5,name:'Pedro Souza',role:'Repositor',shift:'Manha',salary:2000,active:false,phone:'(11)99999-5555'}
     ],
-    users:[
-      {id:1,username:'admin',password:'admin123',name:'Administrador Geral',type:'admin',active:true},
-      {id:2,username:'func',password:'func123',name:'Funcionario Teste',type:'func',active:true},
-      {id:3,username:'cliente',password:'cli123',name:'Cliente Teste',type:'cliente',active:true}
-    ],
+    users:[],
     clients:[
       {id:1,name:'Joao Pereira',phone:'(11)98888-1001',cpf:'123.456.789-00',email:'joao@email.com',address:'Rua das Flores, 100 - SP',active:true,dogs:[]},
       {id:2,name:'Ana Beatriz',phone:'(11)98888-1002',cpf:'987.654.321-00',email:'ana@email.com',address:'Av. Brasil, 200 - SP',active:true,dogs:[{name:'Rex',breed:'Labrador',age:3,color:'Dourado'},{name:'Luna',breed:'Poodle',age:2,color:'Branco'}]},
@@ -2609,16 +2661,18 @@ tr:hover td {
     }
   };
 
-  // Load from server or localStorage
+  // Load from server with JWT or localStorage
   var DB_VERSION=7;
   var saved=localStorage.getItem('petshoppradoDB');
   var savedVer=parseInt(localStorage.getItem('petshoppradoDBVer'))||0;
   if(saved&&savedVer>=DB_VERSION){try{DB=JSON.parse(saved)}catch(e){}}
-  // Try loading from shared server (sync via XMLHttpRequest to avoid login race)
+  // Try loading from shared server with JWT auth (sync)
   (function(){
     try{
+      var jwtToken=localStorage.getItem('petshoppradoJWT');
       var xhr=new XMLHttpRequest();
       xhr.open('GET','/api/load',false);
+      if(jwtToken) xhr.setRequestHeader('Authorization','Bearer '+jwtToken);
       xhr.send();
       if(xhr.status===200){
         var d=JSON.parse(xhr.responseText);
@@ -2634,7 +2688,10 @@ tr:hover td {
     var payload=JSON.stringify(DB);
     localStorage.setItem('petshoppradoDB',payload);
     localStorage.setItem('petshoppradoDBVer',DB_VERSION);
-    fetch('/api/save',{method:'POST',headers:{'Content-Type':'application/json'},body:payload}).catch(function(){});
+    var jwtToken=localStorage.getItem('petshoppradoJWT');
+    var headers={'Content-Type':'application/json'};
+    if(jwtToken) headers['Authorization']='Bearer '+jwtToken;
+    fetch('/api/save',{method:'POST',headers:headers,body:payload}).catch(function(){});
   }
 
   // ===== STATE =====
@@ -2710,13 +2767,24 @@ tr:hover td {
     var u=$('loginUser').value.trim();
     var p=$('loginPass').value.trim();
     var t=$('loginType').value;
-    var found=DB.users.find(function(x){return x.username===u&&x.password===p&&x.type===t&&x.active});
-    if(found){
-      localStorage.setItem('petshoppradoSession',JSON.stringify({userId:found.id,type:found.type}));
-      enterApp(found);
-    }else{
-      toast('Credenciais invalidas!','error');
-    }
+    if(!u||!p){toast('Preencha usuario e senha!','error');return;}
+    $('loginBtn').textContent='Entrando...';
+    $('loginBtn').disabled=true;
+    PetShopDB.login(u,p,function(err,user){
+      $('loginBtn').textContent='Entrar';
+      $('loginBtn').disabled=false;
+      if(err){
+        toast(err.message||'Credenciais invalidas!','error');
+        return;
+      }
+      if(user.type!==t){
+        toast('Tipo de acesso incorreto! Voce e '+user.type,'error');
+        PetShopDB.logout();
+        return;
+      }
+      localStorage.setItem('petshoppradoSession',JSON.stringify({userId:user.id,type:user.type}));
+      enterApp(user);
+    });
   });
   $('loginPass').addEventListener('keydown',function(e){if(e.key==='Enter')$('loginBtn').click()});
   $('loginUser').addEventListener('keydown',function(e){if(e.key==='Enter')$('loginPass').focus()});
@@ -2724,13 +2792,22 @@ tr:hover td {
   // ===== AUTO-LOGIN =====
   (function(){
     var session=localStorage.getItem('petshoppradoSession');
-    if(session){
+    var jwtToken=localStorage.getItem('petshoppradoJWT');
+    if(session&&jwtToken){
       try{
         var s=JSON.parse(session);
-        var user=DB.users.find(function(x){return x.id===s.userId&&x.type===s.type&&x.active});
-        if(user)enterApp(user);
-        else localStorage.removeItem('petshoppradoSession');
-      }catch(e){localStorage.removeItem('petshoppradoSession');}
+        PetShopDB.validateToken(function(err,user){
+          if(!err&&user&&user.active&&user.type===s.type){
+            enterApp(user);
+          }else{
+            localStorage.removeItem('petshoppradoSession');
+            localStorage.removeItem('petshoppradoJWT');
+          }
+        });
+      }catch(e){
+        localStorage.removeItem('petshoppradoSession');
+        localStorage.removeItem('petshoppradoJWT');
+      }
     }
   })();
 
@@ -2838,6 +2915,9 @@ tr:hover td {
   $('logoutBtn').addEventListener('click',function(){
     currentUser=null;cartItems=[];
     localStorage.removeItem('petshoppradoSession');
+    localStorage.removeItem('petshoppradoJWT');
+    PetShopDB.token=null;
+    PetShopDB.saveConfig();
     $('appPage').style.display='none';
     $('loginPage').style.display='flex';
     $('loginUser').value='';$('loginPass').value='';
@@ -4046,8 +4126,8 @@ tr:hover td {
     var u=id?DB.users.find(function(x){return x.id===id}):null;
     var body=
       '<label>Nome Completo</label><input type="text" id="uName" value="'+(u?u.name:'')+'">'+
-      '<label>Nome de Usuario</label><input type="text" id="uUsername" value="'+(u?u.username:'')+'">'+
-      '<label>Senha</label><input type="text" id="uPassword" value="'+(u?u.password:'')+'" placeholder="'+(u?'Deixe vazio para manter':'')+'">'+
+      '<label>Nome de Usuario</label><input type="text" id="uUsername" value="'+(u?u.username:'')+'"'+(u?' disabled':'')+'>'+
+      '<label>Senha</label><input type="text" id="uPassword" value="" placeholder="'+(u?'Deixe vazio para manter':'Obrigatorio')+'">'+
       '<label>Tipo</label><select id="uType"><option value="admin"'+(u&&u.type==='admin'?' selected':'')+'>Administrador</option><option value="func"'+(u&&u.type==='func'?' selected':'')+'>Funcionario</option><option value="cliente"'+(u&&u.type==='cliente'?' selected':'')+'>Cliente</option></select>';
     var foot='<button class="btn btn-ghost" onclick="closeModal()">Cancelar</button><button class="btn btn-primary" onclick="saveUser('+(id?id:'null')+')">'+(u?'Salvar':'Adicionar')+'</button>';
     openModal(u?'Editar Usuario':'Novo Usuario',body,foot);
@@ -4062,27 +4142,60 @@ tr:hover td {
     var pass=$('uPassword').value.trim();
     if(pass)data.password=pass;
     if(!data.name||!data.username){toast('Preencha nome e usuario!','error');return}
+    var jwtToken=localStorage.getItem('petshoppradoJWT');
+    var headers={'Content-Type':'application/json'};
+    if(jwtToken) headers['Authorization']='Bearer '+jwtToken;
     if(id){
-      var idx=DB.users.findIndex(function(u){return u.id===id});
-      if(idx!==-1)DB.users[idx]=Object.assign(DB.users[idx],data);
-      logActivity('USER_EDITADO','Usuario: '+data.name);
-      toast('Usuario atualizado!','success');
+      fetch('/api/users/'+id,{method:'PUT',headers:headers,body:JSON.stringify(data)})
+      .then(function(r){return r.json().then(function(d){return{ok:r.ok,data:d}})})
+      .then(function(res){
+        if(res.ok){
+          logActivity('USER_EDITADO','Usuario: '+data.name);
+          toast('Usuario atualizado!','success');
+          refreshUsersList();
+        }else{toast(res.data.error||'Erro ao atualizar','error')}
+      }).catch(function(){toast('Erro de conexao','error')});
     }else{
       if(!pass){toast('Senha obrigatoria!','error');return}
-      data.id=genId('user');
-      DB.users.push(data);
-      logActivity('USER_CRIADO','Usuario: '+data.name+' (@'+data.username+') — '+data.type);
-      toast('Usuario criado!','success');
+      fetch('/api/auth/create-user',{method:'POST',headers:headers,body:JSON.stringify(data)})
+      .then(function(r){return r.json().then(function(d){return{ok:r.ok,data:d}})})
+      .then(function(res){
+        if(res.ok){
+          logActivity('USER_CRIADO','Usuario: '+data.name+' (@'+data.username+') — '+data.type);
+          toast('Usuario criado!','success');
+          refreshUsersList();
+        }else{toast(res.data.error||'Erro ao criar','error')}
+      }).catch(function(){toast('Erro de conexao','error')});
     }
-    saveDB();closeModal();renderUsrTable();
+    closeModal();
   };
   window.toggleUser=function(id){
     var u=DB.users.find(function(x){return x.id===id});
-    u.active=!u.active;
-    logActivity('USER_STATUS',u.name+' — '+(u.active?'ativado':'desativado'));
-    saveDB();renderUsrTable();
-    toast(u.name+(u.active?' ativado':' desativado'),'info');
+    var newActive=!u.active;
+    var jwtToken=localStorage.getItem('petshoppradoJWT');
+    var headers={'Content-Type':'application/json'};
+    if(jwtToken) headers['Authorization']='Bearer '+jwtToken;
+    fetch('/api/users/'+id,{method:'PUT',headers:headers,body:JSON.stringify({active:newActive})})
+    .then(function(r){return r.json()})
+    .then(function(){
+      u.active=newActive;
+      logActivity('USER_STATUS',u.name+' — '+(newActive?'ativado':'desativado'));
+      saveDB();renderUsrTable();
+      toast(u.name+(newActive?' ativado':' desativado'),'info');
+    }).catch(function(){toast('Erro ao alterar status','error')});
   };
+  function refreshUsersList(){
+    var jwtToken=localStorage.getItem('petshoppradoJWT');
+    var headers={};
+    if(jwtToken) headers['Authorization']='Bearer '+jwtToken;
+    fetch('/api/users',{headers:headers})
+    .then(function(r){return r.json()})
+    .then(function(users){
+      DB.users=users;
+      saveDB();
+      renderUsrTable();
+    }).catch(function(){});
+  }
 
   // ===== CATEGORIES =====
   function renderCategories(m){
@@ -4980,8 +5093,23 @@ tr:hover td {
     var isRemote=cfg.type==='remote';
     var hasPw=cfg.hasPassword;
     var dataSize=(new Blob([JSON.stringify(PetShopDB.data)]).size/1024).toFixed(1);
+    var jwtActive=PetShopDB.token?true:false;
+    var jwtShort=PetShopDB.token?PetShopDB.token.substring(0,20)+'...':'Nenhum';
     m.innerHTML=
       '<div class="page-header"><h2>🗄️ Configuracao do Banco de Dados</h2></div>'+
+
+      '<div class="settings-card">'+
+      '<h3>🔐 Autenticacao JWT</h3>'+
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px;margin-top:8px">'+
+      '<div><strong>Status:</strong> '+(jwtActive?'<span style="color:#00d4aa">Autenticado</span>':'<span style="color:var(--danger)">Nao autenticado</span>')+'</div>'+
+      '<div><strong>Token:</strong> <code style="background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:11px">'+jwtShort+'</code></div>'+
+      '<div style="grid-column:span 2"><strong>Sessao:</strong> '+(currentUser?currentUser.name+' ('+currentUser.type+')':'Nenhum usuario logado')+'</div>'+
+      '</div>'+
+      '<div style="display:flex;gap:8px;margin-top:16px">'+
+      '<button class="btn btn-ghost" onclick="openChangePasswordModal()">🔑 Alterar Minha Senha</button>'+
+      '<button class="btn btn-ghost" onclick="renderDbConfig(document.getElementById(\'mainContent\'))" style="color:var(--accent)">🔄 Atualizar Status</button>'+
+      '</div>'+
+      '</div>'+
 
       '<div class="settings-card">'+
       '<h3>📡 Tipo de Armazenamento</h3>'+
@@ -4991,32 +5119,24 @@ tr:hover td {
       '<div style="font-weight:700">Local (Navegador)</div>'+
       '<div style="font-size:11px;opacity:0.7;margin-top:4px">Dados salvos neste dispositivo</div>'+
       '</button>'+
-      '<button class="btn '+(isRemote?'btn-primary':'btn-ghost')+'" id="dbTypeRemote" onclick="setDbType(\'remote\')" style="flex:1;padding:16px">'+
+      '<button class="btn btn-primary" style="flex:1;padding:16px;cursor:default;opacity:0.8">'+
       '<div style="font-size:24px;margin-bottom:6px">🌐</div>'+
-      '<div style="font-weight:700">Remoto (Servidor)</div>'+
-      '<div style="font-size:11px;opacity:0.7;margin-top:4px">Sincronizar com API</div>'+
+      '<div style="font-weight:700">Compartilhado (Servidor)</div>'+
+      '<div style="font-size:11px;opacity:0.7;margin-top:4px">JWT + API com protecao</div>'+
       '</button>'+
       '</div>'+
       '</div>'+
 
-      (isRemote?
       '<div class="settings-card">'+
-      '<h3>🔗 URL do Servidor</h3>'+
-      '<label>Endpoint da API</label>'+
-      '<input type="text" id="dbRemoteUrl" value="'+(cfg.url||'')+'" placeholder="https://seudominio.com/api/petshopdb" style="font-family:monospace">'+
-      '<div class="settings-hint">URL completa do endpoint que recebera POST para salvar e GET para carregar os dados.</div>'+
-      '</div>':'')+
-
-      '<div class="settings-card">'+
-      '<h3>🔒 Protecao por Senha</h3>'+
+      '<h3>🔒 Protecao por Senha (Criptografia Local)</h3>'+
       '<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">'+
       '<label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px">'+
       '<input type="checkbox" id="dbEnablePw" '+(hasPw?'checked':'')+' onchange="toggleDbPassword()" style="width:18px;height:18px;accent-color:#00d4aa">'+
-      'Ativar criptografia do banco de dados'+
+      'Ativar criptografia extra do banco de dados'+
       '</label>'+
       '</div>'+
       '<div id="dbPwFields" style="display:'+(hasPw?'block':'none')+'">'+
-      '<label>'+(hasPw?'Alterar Senha':'Nova Senha')+'</label>'+
+      '<label>'+(hasPw?'Alterar Senha Criptografia':'Nova Senha')+'</label>'+
       '<input type="password" id="dbNewPw" placeholder="Digite a senha">'+
       '<label>Confirmar Senha</label>'+
       '<input type="password" id="dbConfirmPw" placeholder="Repita a senha">'+
@@ -5024,47 +5144,62 @@ tr:hover td {
       '<input type="checkbox" id="dbRememberPw" '+(cfg.rememberPassword?'checked':'')+' style="width:18px;height:18px;accent-color:#00d4aa">'+
       '<label for="dbRememberPw" style="font-size:13px;cursor:pointer">Lembrar senha neste dispositivo</label>'+
       '</div>'+
-      '<div class="settings-hint">Os dados serao criptografados com XOR + Base64. A senha e necessaria toda vez que o sistema carregar.</div>'+
+      '<div class="settings-hint">Criptografia XOR local. Diferente do JWT (que protege a conexao), esta protege os dados no navegador.</div>'+
       '</div>'+
       '</div>'+
 
       '<div class="settings-card">'+
       '<h3>📊 Status Atual</h3>'+
       '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px">'+
-      '<div><strong>Tipo:</strong> '+(isRemote?'Remoto (API)':'Local (localStorage)')+'</div>'+
+      '<div><strong>Tipo:</strong> Compartilhado (API JWT)</div>'+
       '<div><strong>Chave:</strong> <code style="background:var(--bg3);padding:2px 6px;border-radius:4px">'+cfg.key+'</code></div>'+
-      '<div><strong>Criptografia:</strong> '+(hasPw?'<span style="color:#00d4aa">Ativada</span>':'<span style="color:var(--warn)">Desativada</span>')+'</div>'+
+      '<div><strong>Criptografia Local:</strong> '+(hasPw?'<span style="color:#00d4aa">Ativada</span>':'<span style="color:var(--warn)">Desativada</span>')+'</div>'+
       '<div><strong>Tamanho:</strong> '+dataSize+' KB</div>'+
-      (isRemote?'<div style="grid-column:span 2"><strong>URL:</strong> <code style="background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:11px">'+(cfg.url||'(nao configurado)')+'</code></div>':'')+
+      '<div><strong>API:</strong> <code style="background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:11px">/api/load</code></div>'+
+      '<div><strong>JWT Expira:</strong> 7 dias</div>'+
       '</div>'+
       '</div>'+
 
       '<div style="display:flex;gap:12px;margin-top:8px">'+
       '<button class="btn btn-primary" onclick="saveDbConfig()" style="flex:1">💾 Salvar Configuracao</button>'+
-      '<button class="btn btn-ghost" onclick="renderDbConfig($('+"'mainContent'"+'))" style="flex:1">↩️ Restaurar Padrao</button>'+
       '</div>';
   }
 
+  window.openChangePasswordModal=function(){
+    var body=
+      '<label>Senha Atual</label><input type="password" id="cpwCurrent" placeholder="Digite sua senha atual">'+
+      '<label>Nova Senha</label><input type="password" id="cpwNew" placeholder="Minimo 4 caracteres">'+
+      '<label>Confirmar Nova Senha</label><input type="password" id="cpwConfirm" placeholder="Repita a nova senha">'+
+      '<div id="cpwError" style="color:var(--danger);font-size:12px;margin-top:8px;min-height:16px;font-weight:600"></div>';
+    var foot='<button class="btn btn-ghost" onclick="closeModal()">Cancelar</button><button class="btn btn-primary" onclick="doChangePassword()">Alterar Senha</button>';
+    openModal('Alterar Senha',body,foot);
+  };
+
+  window.doChangePassword=function(){
+    var cur=$('cpwCurrent').value;
+    var nw=$('cpwNew').value;
+    var cf=$('cpwConfirm').value;
+    var errEl=$('cpwError');
+    if(!cur||!nw||!cf){errEl.textContent='Preencha todos os campos!';return}
+    if(nw.length<4){errEl.textContent='Nova senha deve ter pelo menos 4 caracteres!';return}
+    if(nw!==cf){errEl.textContent='As senhas nao conferem!';return}
+    var jwtToken=localStorage.getItem('petshoppradoJWT');
+    var headers={'Content-Type':'application/json'};
+    if(jwtToken) headers['Authorization']='Bearer '+jwtToken;
+    fetch('/api/auth/change-password',{method:'POST',headers:headers,body:JSON.stringify({currentPassword:cur,newPassword:nw})})
+    .then(function(r){return r.json().then(function(d){return{ok:r.ok,data:d}})})
+    .then(function(res){
+      if(res.ok){
+        toast('Senha alterada com sucesso!','success');
+        closeModal();
+      }else{
+        errEl.textContent=res.data.error||'Erro ao alterar senha';
+      }
+    }).catch(function(){errEl.textContent='Erro de conexao com o servidor'});
+  };
+
   window.setDbType=function(type){
-    var isRemote=(type==='remote');
-    document.getElementById('dbTypeLocal').className='btn '+(isRemote?'btn-ghost':'btn-primary');
-    document.getElementById('dbTypeRemote').className='btn '+(isRemote?'btn-primary':'btn-ghost');
-    var existing=document.getElementById('dbRemoteUrlBlock');
-    if(isRemote&&!existing){
-      var card=document.querySelector('.settings-card');
-      var refCard=card?card.nextElementSibling:card;
-      var div=document.createElement('div');
-      div.className='settings-card';
-      div.id='dbRemoteUrlBlock';
-      div.innerHTML=
-        '<h3>🔗 URL do Servidor</h3>'+
-        '<label>Endpoint da API</label>'+
-        '<input type="text" id="dbRemoteUrl" value="'+(PetShopDB.config.url||'')+'" placeholder="https://seudominio.com/api/petshopdb" style="font-family:monospace">'+
-        '<div class="settings-hint">URL completa do endpoint que recebera POST para salvar e GET para carregar os dados.</div>';
-      if(refCard)refCard.parentNode.insertBefore(div,refCard);
-    }else if(!isRemote&&existing){
-      existing.remove();
-    }
+    toast('Modo compartilhado via API JWT ativo!','info');
   };
 
   window.toggleDbPassword=function(){
@@ -5078,17 +5213,6 @@ tr:hover td {
     var newPw=document.getElementById('dbNewPw');
     var confirmPw=document.getElementById('dbConfirmPw');
     var rememberPw=document.getElementById('dbRememberPw');
-    var remoteUrl=document.getElementById('dbRemoteUrl');
-
-    var type=PetShopDB.config.type;
-    var typeLocal=document.getElementById('dbTypeLocal');
-    if(typeLocal&&typeLocal.className.indexOf('btn-primary')>=0)type='local';
-    else type='remote';
-
-    if(type==='remote'){
-      var url=remoteUrl?remoteUrl.value.trim():'';
-      if(!url){toast('Informe a URL do servidor!','error');return}
-    }
 
     var password=undefined;
     if(enablePw&&enablePw.checked){
@@ -5103,9 +5227,9 @@ tr:hover td {
     }
 
     var newConfig={
-      type:type,
+      type:'shared',
       key:PetShopDB.config.key,
-      url:type==='remote'?(remoteUrl?remoteUrl.value.trim():''):'',
+      url:'',
       password:password,
       rememberPassword:rememberPw?rememberPw.checked:false
     };
@@ -5116,7 +5240,7 @@ tr:hover td {
         return;
       }
       toast('Configuracao do banco salva com sucesso!','success');
-      logActivity('DB_CONFIG','Tipo: '+type+' | Criptografia: '+(enablePw&&enablePw.checked?'Sim':'Nao'));
+      logActivity('DB_CONFIG','Tipo: shared (JWT) | Criptografia: '+(enablePw&&enablePw.checked?'Sim':'Nao'));
       renderDbConfig($('mainContent'));
     });
   };
