@@ -1,0 +1,2107 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Racao Premium Cao Adulto 15kg",
+      "cat": "Alimentacao",
+      "price": 208.89,
+      "stock": 40,
+      "minStock": 8,
+      "unit": "kg",
+      "barcode": "7891000001001",
+      "emoji": "🐕"
+    },
+    {
+      "id": 2,
+      "name": "Racao Premium Gato Adulto 10kg",
+      "cat": "Alimentacao",
+      "price": 175.89,
+      "stock": 35,
+      "minStock": 8,
+      "unit": "kg",
+      "barcode": "7891000001002",
+      "emoji": "🐱"
+    },
+    {
+      "id": 3,
+      "name": "Racao Filhote Cao 8kg",
+      "cat": "Alimentacao",
+      "price": 142.89,
+      "stock": 30,
+      "minStock": 6,
+      "unit": "kg",
+      "barcode": "7891000001003",
+      "emoji": "🐶"
+    },
+    {
+      "id": 4,
+      "name": "Racao Filhote Gato 5kg",
+      "cat": "Alimentacao",
+      "price": 109.89,
+      "stock": 25,
+      "minStock": 6,
+      "unit": "kg",
+      "barcode": "7891000001004",
+      "emoji": "🐈"
+    },
+    {
+      "id": 5,
+      "name": "Racao Castrados Gato 5kg",
+      "cat": "Alimentacao",
+      "price": 120.89,
+      "stock": 30,
+      "minStock": 6,
+      "unit": "kg",
+      "barcode": "7891000001005",
+      "emoji": "🐱"
+    },
+    {
+      "id": 6,
+      "name": "Racao Senior Cao 12kg",
+      "cat": "Alimentacao",
+      "price": 186.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "kg",
+      "barcode": "7891000001006",
+      "emoji": "🐕"
+    },
+    {
+      "id": 7,
+      "name": "Petisco Dental Cao 150g",
+      "cat": "Alimentacao",
+      "price": 27.39,
+      "stock": 60,
+      "minStock": 10,
+      "unit": "g",
+      "barcode": "7891000001007",
+      "emoji": "🦴"
+    },
+    {
+      "id": 8,
+      "name": "Petisco Gato Tubo 20g x6",
+      "cat": "Alimentacao",
+      "price": 20.79,
+      "stock": 80,
+      "minStock": 12,
+      "unit": "un",
+      "barcode": "7891000001008",
+      "emoji": "🐟"
+    },
+    {
+      "id": 9,
+      "name": "Ossinho Defumado 120g",
+      "cat": "Alimentacao",
+      "price": 21.89,
+      "stock": 50,
+      "minStock": 10,
+      "unit": "g",
+      "barcode": "7891000001009",
+      "emoji": "🦴"
+    },
+    {
+      "id": 10,
+      "name": "Sache Frango Gato 85g",
+      "cat": "Alimentacao",
+      "price": 6.49,
+      "stock": 200,
+      "minStock": 30,
+      "unit": "g",
+      "barcode": "7891000001010",
+      "emoji": "🍗"
+    },
+    {
+      "id": 11,
+      "name": "Sache Carne Gato 85g",
+      "cat": "Alimentacao",
+      "price": 6.49,
+      "stock": 180,
+      "minStock": 30,
+      "unit": "g",
+      "barcode": "7891000001011",
+      "emoji": "🥩"
+    },
+    {
+      "id": 12,
+      "name": "Shampoo Neutro Cao 500ml",
+      "cat": "Higiene",
+      "price": 36.19,
+      "stock": 40,
+      "minStock": 8,
+      "unit": "ml",
+      "barcode": "7891000001012",
+      "emoji": "🧴"
+    },
+    {
+      "id": 13,
+      "name": "Shampoo Antipulga 500ml",
+      "cat": "Higiene",
+      "price": 43.89,
+      "stock": 35,
+      "minStock": 8,
+      "unit": "ml",
+      "barcode": "7891000001013",
+      "emoji": "🧴"
+    },
+    {
+      "id": 14,
+      "name": "Condicionador Pet 500ml",
+      "cat": "Higiene",
+      "price": 38.39,
+      "stock": 30,
+      "minStock": 6,
+      "unit": "ml",
+      "barcode": "7891000001014",
+      "emoji": "🧴"
+    },
+    {
+      "id": 15,
+      "name": "Areia Sanitaria Silica 5kg",
+      "cat": "Higiene",
+      "price": 32.89,
+      "stock": 80,
+      "minStock": 15,
+      "unit": "kg",
+      "barcode": "7891000001015",
+      "emoji": "🧱"
+    },
+    {
+      "id": 16,
+      "name": "Areia Sanitaria Bentonita 10kg",
+      "cat": "Higiene",
+      "price": 27.39,
+      "stock": 60,
+      "minStock": 12,
+      "unit": "kg",
+      "barcode": "7891000001016",
+      "emoji": "🧱"
+    },
+    {
+      "id": 17,
+      "name": "Lençol Higienico Pet 30un",
+      "cat": "Higiene",
+      "price": 25.19,
+      "stock": 50,
+      "minStock": 10,
+      "unit": "un",
+      "barcode": "7891000001017",
+      "emoji": "🧻"
+    },
+    {
+      "id": 18,
+      "name": "Perfume Pet Spray 120ml",
+      "cat": "Higiene",
+      "price": 31.79,
+      "stock": 45,
+      "minStock": 8,
+      "unit": "ml",
+      "barcode": "7891000001018",
+      "emoji": "🌸"
+    },
+    {
+      "id": 19,
+      "name": "Colonia Pet 150ml",
+      "cat": "Higiene",
+      "price": 28.49,
+      "stock": 40,
+      "minStock": 8,
+      "unit": "ml",
+      "barcode": "7891000001019",
+      "emoji": "💐"
+    },
+    {
+      "id": 20,
+      "name": "Ovos de Cama Peludo",
+      "cat": "Higiene",
+      "price": 21.89,
+      "stock": 100,
+      "minStock": 15,
+      "unit": "un",
+      "barcode": "7891000001020",
+      "emoji": "🥚"
+    },
+    {
+      "id": 21,
+      "name": "Coleira Couro Pequena",
+      "cat": "Acessorios",
+      "price": 54.89,
+      "stock": 25,
+      "minStock": 5,
+      "unit": "un",
+      "barcode": "7891000001021",
+      "emoji": "📿"
+    },
+    {
+      "id": 22,
+      "name": "Coleira Couro Media",
+      "cat": "Acessorios",
+      "price": 65.89,
+      "stock": 25,
+      "minStock": 5,
+      "unit": "un",
+      "barcode": "7891000001022",
+      "emoji": "📿"
+    },
+    {
+      "id": 23,
+      "name": "Coleira Couro Grande",
+      "cat": "Acessorios",
+      "price": 76.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "barcode": "7891000001023",
+      "emoji": "📿"
+    },
+    {
+      "id": 24,
+      "name": "Guia de Passeio Retractil",
+      "cat": "Acessorios",
+      "price": 49.39,
+      "stock": 30,
+      "minStock": 6,
+      "unit": "un",
+      "barcode": "7891000001024",
+      "emoji": "🔗"
+    },
+    {
+      "id": 25,
+      "name": "Peitoral Gato Escapulario",
+      "cat": "Acessorios",
+      "price": 43.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "barcode": "7891000001025",
+      "emoji": "🐱"
+    },
+    {
+      "id": 26,
+      "name": "Bolinha de Silicone",
+      "cat": "Brinquedos",
+      "price": 16.39,
+      "stock": 100,
+      "minStock": 15,
+      "unit": "un",
+      "emoji": "⚽"
+    },
+    {
+      "id": 27,
+      "name": "Ratinho de Pelucia x3",
+      "cat": "Brinquedos",
+      "price": 25.19,
+      "stock": 60,
+      "minStock": 10,
+      "unit": "un",
+      "emoji": "🐭"
+    },
+    {
+      "id": 28,
+      "name": "Corda Trançada Cao",
+      "cat": "Brinquedos",
+      "price": 32.89,
+      "stock": 45,
+      "minStock": 8,
+      "unit": "un",
+      "emoji": "🪢"
+    },
+    {
+      "id": 29,
+      "name": "Varinha com Pena",
+      "cat": "Brinquedos",
+      "price": 21.89,
+      "stock": 50,
+      "minStock": 8,
+      "unit": "un",
+      "emoji": "🪶"
+    },
+    {
+      "id": 30,
+      "name": "Bexia de Nylon Cao",
+      "cat": "Brinquedos",
+      "price": 14.19,
+      "stock": 80,
+      "minStock": 12,
+      "unit": "un",
+      "emoji": "🎈"
+    },
+    {
+      "id": 31,
+      "name": "Casinha Cao Medio",
+      "cat": "Casas e Camas",
+      "price": 208.89,
+      "stock": 15,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "🏠"
+    },
+    {
+      "id": 32,
+      "name": "Casinha Gato com Descanço",
+      "cat": "Casas e Camas",
+      "price": 175.89,
+      "stock": 12,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "🏠"
+    },
+    {
+      "id": 33,
+      "name": "Cama Peluda Oval P",
+      "cat": "Casas e Camas",
+      "price": 98.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "🛏️"
+    },
+    {
+      "id": 34,
+      "name": "Cama Peluda Oval M",
+      "cat": "Casas e Camas",
+      "price": 131.89,
+      "stock": 15,
+      "minStock": 4,
+      "unit": "un",
+      "emoji": "🛏️"
+    },
+    {
+      "id": 35,
+      "name": "Cama Peluda Oval G",
+      "cat": "Casas e Camas",
+      "price": 164.89,
+      "stock": 10,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "🛏️"
+    },
+    {
+      "id": 36,
+      "name": "Caixa de Transporte P",
+      "cat": "Transporte",
+      "price": 87.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "📦"
+    },
+    {
+      "id": 37,
+      "name": "Caixa de Transporte M",
+      "cat": "Transporte",
+      "price": 109.89,
+      "stock": 15,
+      "minStock": 4,
+      "unit": "un",
+      "emoji": "📦"
+    },
+    {
+      "id": 38,
+      "name": "Caixa de Transporte G",
+      "cat": "Transporte",
+      "price": 142.89,
+      "stock": 10,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "📦"
+    },
+    {
+      "id": 39,
+      "name": "Bolsa de Transporte Gato",
+      "cat": "Transporte",
+      "price": 98.89,
+      "stock": 18,
+      "minStock": 4,
+      "unit": "un",
+      "emoji": "👜"
+    },
+    {
+      "id": 40,
+      "name": "Comedouro Inox P",
+      "cat": "Acessorios",
+      "price": 32.89,
+      "stock": 40,
+      "minStock": 8,
+      "unit": "un",
+      "emoji": "🥣"
+    },
+    {
+      "id": 41,
+      "name": "Comedouro Inox M",
+      "cat": "Acessorios",
+      "price": 38.39,
+      "stock": 35,
+      "minStock": 8,
+      "unit": "un",
+      "emoji": "🥣"
+    },
+    {
+      "id": 42,
+      "name": "Comedouro Inox G",
+      "cat": "Acessorios",
+      "price": 49.39,
+      "stock": 25,
+      "minStock": 6,
+      "unit": "un",
+      "emoji": "🥣"
+    },
+    {
+      "id": 43,
+      "name": "Bebedouro Automatico 2L",
+      "cat": "Acessorios",
+      "price": 87.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "💧"
+    },
+    {
+      "id": 44,
+      "name": "Pote Duplo Viagem",
+      "cat": "Acessorios",
+      "price": 38.39,
+      "stock": 30,
+      "minStock": 6,
+      "unit": "un",
+      "emoji": "🍽️"
+    },
+    {
+      "id": 45,
+      "name": "Adestrador Eletronico",
+      "cat": "Acessorios",
+      "price": 76.89,
+      "stock": 15,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "⚡"
+    },
+    {
+      "id": 46,
+      "name": "Antipulga Cao P 4un",
+      "cat": "Saude",
+      "price": 65.89,
+      "stock": 40,
+      "minStock": 8,
+      "unit": "un",
+      "emoji": "💊"
+    },
+    {
+      "id": 47,
+      "name": "Antipulga Cao G 4un",
+      "cat": "Saude",
+      "price": 87.89,
+      "stock": 30,
+      "minStock": 6,
+      "unit": "un",
+      "emoji": "💊"
+    },
+    {
+      "id": 48,
+      "name": "Antipulga Gato 3un",
+      "cat": "Saude",
+      "price": 60.39,
+      "stock": 35,
+      "minStock": 8,
+      "unit": "un",
+      "emoji": "💊"
+    },
+    {
+      "id": 49,
+      "name": "Vermifugo Cao 2un",
+      "cat": "Saude",
+      "price": 43.89,
+      "stock": 50,
+      "minStock": 10,
+      "unit": "un",
+      "emoji": "💊"
+    },
+    {
+      "id": 50,
+      "name": "Vermifugo Gato 2un",
+      "cat": "Saude",
+      "price": 38.39,
+      "stock": 45,
+      "minStock": 10,
+      "unit": "un",
+      "emoji": "💊"
+    },
+    {
+      "id": 51,
+      "name": "Vacina V10 Cao",
+      "cat": "Saude",
+      "price": 98.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "💉"
+    },
+    {
+      "id": 52,
+      "name": "Vacina V4 Gato",
+      "cat": "Saude",
+      "price": 87.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "💉"
+    },
+    {
+      "id": 53,
+      "name": "Vitamina Pet 250ml",
+      "cat": "Saude",
+      "price": 49.39,
+      "stock": 30,
+      "minStock": 6,
+      "unit": "ml",
+      "emoji": "🧪"
+    },
+    {
+      "id": 54,
+      "name": "Shampoo Seco Cao 200ml",
+      "cat": "Higiene",
+      "price": 40.59,
+      "stock": 25,
+      "minStock": 5,
+      "unit": "ml",
+      "emoji": "🧴"
+    },
+    {
+      "id": 55,
+      "name": "Pasta de Dentes Pet 100g",
+      "cat": "Higiene",
+      "price": 32.89,
+      "stock": 30,
+      "minStock": 6,
+      "unit": "g",
+      "emoji": "🪥"
+    },
+    {
+      "id": 56,
+      "name": "Escova de Dentes Pet",
+      "cat": "Higiene",
+      "price": 16.39,
+      "stock": 50,
+      "minStock": 10,
+      "unit": "un",
+      "emoji": "🪥"
+    },
+    {
+      "id": 57,
+      "name": "Alicate de Unha Pet",
+      "cat": "Higiene",
+      "price": 27.39,
+      "stock": 35,
+      "minStock": 8,
+      "unit": "un",
+      "emoji": "✂️"
+    },
+    {
+      "id": 58,
+      "name": "Pente Antipulga",
+      "cat": "Higiene",
+      "price": 20.79,
+      "stock": 40,
+      "minStock": 8,
+      "unit": "un",
+      "emoji": "🪮"
+    },
+    {
+      "id": 59,
+      "name": "Fita Antiparasitaria Cao",
+      "cat": "Saude",
+      "price": 38.39,
+      "stock": 40,
+      "minStock": 8,
+      "unit": "un",
+      "emoji": "🔖"
+    },
+    {
+      "id": 60,
+      "name": "Fita Antiparasitaria Gato",
+      "cat": "Saude",
+      "price": 36.19,
+      "stock": 35,
+      "minStock": 8,
+      "unit": "un",
+      "emoji": "🔖"
+    },
+    {
+      "id": 61,
+      "name": "Roupa Pet Estampada P",
+      "cat": "Roupas",
+      "price": 43.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "👗"
+    },
+    {
+      "id": 62,
+      "name": "Roupa Pet Estampada M",
+      "cat": "Roupas",
+      "price": 54.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "👗"
+    },
+    {
+      "id": 63,
+      "name": "Roupa Pet Estampada G",
+      "cat": "Roupas",
+      "price": 65.89,
+      "stock": 15,
+      "minStock": 4,
+      "unit": "un",
+      "emoji": "👗"
+    },
+    {
+      "id": 64,
+      "name": "Coleira Guia Combo",
+      "cat": "Acessorios",
+      "price": 76.89,
+      "stock": 25,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "✨"
+    },
+    {
+      "id": 65,
+      "name": "Caminha Paninha Quente",
+      "cat": "Casas e Camas",
+      "price": 65.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "🛏️"
+    },
+    {
+      "id": 66,
+      "name": "Capa de Chuva Pet P",
+      "cat": "Acessorios",
+      "price": 38.39,
+      "stock": 15,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "☔"
+    },
+    {
+      "id": 67,
+      "name": "Capa de Chuva Pet M",
+      "cat": "Acessorios",
+      "price": 43.89,
+      "stock": 15,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "☔"
+    },
+    {
+      "id": 68,
+      "name": "Petisco Premium Filhote",
+      "cat": "Alimentacao",
+      "price": 18.59,
+      "stock": 50,
+      "minStock": 8,
+      "unit": "g",
+      "emoji": "🐾"
+    },
+    {
+      "id": 69,
+      "name": "Snack Cao Bacon 100g",
+      "cat": "Alimentacao",
+      "price": 16.39,
+      "stock": 60,
+      "minStock": 10,
+      "unit": "g",
+      "emoji": "🥓"
+    },
+    {
+      "id": 70,
+      "name": "Ossinho de Couro Natural",
+      "cat": "Alimentacao",
+      "price": 25.19,
+      "stock": 45,
+      "minStock": 8,
+      "unit": "un",
+      "emoji": "🦴"
+    },
+    {
+      "id": 71,
+      "name": "Brinquedo Quebra Cabeca",
+      "cat": "Brinquedos",
+      "price": 49.39,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "🧩"
+    },
+    {
+      "id": 72,
+      "name": "Tunel Gato Dobradiça",
+      "cat": "Brinquedos",
+      "price": 87.89,
+      "stock": 12,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "🚇"
+    },
+    {
+      "id": 73,
+      "name": "Escada Gato Parede",
+      "cat": "Casas e Camas",
+      "price": 142.89,
+      "stock": 8,
+      "minStock": 2,
+      "unit": "un",
+      "emoji": "🪜"
+    },
+    {
+      "id": 74,
+      "name": "Cercado Gato Telado",
+      "cat": "Casas e Camas",
+      "price": 164.89,
+      "stock": 6,
+      "minStock": 2,
+      "unit": "un",
+      "emoji": "🏗️"
+    },
+    {
+      "id": 75,
+      "name": "GPS Pet Tracker",
+      "cat": "Saude",
+      "price": 164.89,
+      "stock": 10,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "📍"
+    },
+    {
+      "id": 76,
+      "name": "Cama Gel Refrescante P",
+      "cat": "Casas e Camas",
+      "price": 109.89,
+      "stock": 12,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "❄️"
+    },
+    {
+      "id": 77,
+      "name": "Cama Gel Refrescante M",
+      "cat": "Casas e Camas",
+      "price": 142.89,
+      "stock": 10,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "❄️"
+    },
+    {
+      "id": 78,
+      "name": "Cama Gel Refrescante G",
+      "cat": "Casas e Camas",
+      "price": 175.89,
+      "stock": 8,
+      "minStock": 2,
+      "unit": "un",
+      "emoji": "❄️"
+    },
+    {
+      "id": 79,
+      "name": "Corta Unha Profissional",
+      "cat": "Higiene",
+      "price": 36.19,
+      "stock": 25,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "✂️"
+    },
+    {
+      "id": 80,
+      "name": "Placa Identificacao Pet",
+      "cat": "Acessorios",
+      "price": 27.39,
+      "stock": 40,
+      "minStock": 8,
+      "unit": "un",
+      "emoji": "🪪"
+    },
+    {
+      "id": 81,
+      "name": "Cobertor Pelucia Pequeno",
+      "cat": "Casas e Camas",
+      "price": 54.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "🧣"
+    },
+    {
+      "id": 82,
+      "name": "Cobertor Pelucia Medio",
+      "cat": "Casas e Camas",
+      "price": 76.89,
+      "stock": 15,
+      "minStock": 4,
+      "unit": "un",
+      "emoji": "🧣"
+    },
+    {
+      "id": 83,
+      "name": "Mochila Pet Viagem",
+      "cat": "Transporte",
+      "price": 164.89,
+      "stock": 10,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "🎒"
+    },
+    {
+      "id": 84,
+      "name": "Asinha de Passeio Gato",
+      "cat": "Acessorios",
+      "price": 60.39,
+      "stock": 15,
+      "minStock": 4,
+      "unit": "un",
+      "emoji": "🪽"
+    },
+    {
+      "id": 85,
+      "name": "Spray Calmante Pet 200ml",
+      "cat": "Saude",
+      "price": 54.89,
+      "stock": 25,
+      "minStock": 5,
+      "unit": "ml",
+      "emoji": "🌿"
+    },
+    {
+      "id": 86,
+      "name": "Oleo de Salmão 250ml",
+      "cat": "Saude",
+      "price": 60.39,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "ml",
+      "emoji": "🐟"
+    },
+    {
+      "id": 87,
+      "name": "Probiotico Pet 30 caps",
+      "cat": "Saude",
+      "price": 76.89,
+      "stock": 18,
+      "minStock": 4,
+      "unit": "un",
+      "emoji": "💊"
+    },
+    {
+      "id": 88,
+      "name": "Pasta Osso Dentiro 100g",
+      "cat": "Saude",
+      "price": 30.69,
+      "stock": 30,
+      "minStock": 6,
+      "unit": "g",
+      "emoji": "🦴"
+    },
+    {
+      "id": 89,
+      "name": "Tapete Higienico P",
+      "cat": "Higiene",
+      "price": 43.89,
+      "stock": 30,
+      "minStock": 6,
+      "unit": "un",
+      "emoji": "🧱"
+    },
+    {
+      "id": 90,
+      "name": "Tapete Higienico G",
+      "cat": "Higiene",
+      "price": 65.89,
+      "stock": 20,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "🧱"
+    },
+    {
+      "id": 91,
+      "name": "Fraldas Pet G",
+      "cat": "Higiene",
+      "price": 49.39,
+      "stock": 25,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "👶"
+    },
+    {
+      "id": 92,
+      "name": "Cama Ortopedica Cao Grande",
+      "cat": "Casas e Camas",
+      "price": 274.89,
+      "stock": 8,
+      "minStock": 2,
+      "unit": "un",
+      "emoji": "🛏️"
+    },
+    {
+      "id": 93,
+      "name": "Bebedouro Filtrante 3L",
+      "cat": "Acessorios",
+      "price": 98.89,
+      "stock": 14,
+      "minStock": 4,
+      "unit": "un",
+      "emoji": "💧"
+    },
+    {
+      "id": 94,
+      "name": "Alimentador Automatico 5kg",
+      "cat": "Acessorios",
+      "price": 197.89,
+      "stock": 10,
+      "minStock": 3,
+      "unit": "un",
+      "emoji": "🍽️"
+    },
+    {
+      "id": 95,
+      "name": "Canivete Emergencia Pet",
+      "cat": "Saude",
+      "price": 32.89,
+      "stock": 19,
+      "minStock": 5,
+      "unit": "un",
+      "emoji": "🔧"
+    },
+    {
+      "emoji": "🐕",
+      "name": "Veja",
+      "cat": "Alimentacao",
+      "price": 1.43,
+      "cost": 1,
+      "markup": 30,
+      "stock": 20,
+      "minStock": 10,
+      "unit": "kg",
+      "barcode": "7891035215537",
+      "expiryDate": "2026-07-29",
+      "lot": "1",
+      "id": 96
+    },
+    {
+      "emoji": "🐕",
+      "name": "Saco 15kg magnus todo dia",
+      "cat": "Alimentacao",
+      "price": 150,
+      "cost": 150,
+      "markup": 0,
+      "stock": 1,
+      "minStock": 10,
+      "unit": "un",
+      "barcode": "7898363312815",
+      "expiryDate": "2027-07-01",
+      "lot": "12260",
+      "id": 97
+    },
+    {
+      "emoji": "🐕",
+      "name": "Graneu magnus todo dia",
+      "cat": "Alimentacao",
+      "price": 7.5,
+      "cost": 145,
+      "markup": 0,
+      "stock": 98,
+      "minStock": 10,
+      "unit": "kg",
+      "barcode": "7898363312822",
+      "expiryDate": "2027-06-04",
+      "lot": "0122",
+      "id": 98
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Carlos Silva",
+      "role": "Caixa",
+      "shift": "Manha",
+      "salary": 2200,
+      "active": true,
+      "phone": "(11)99999-1111"
+    },
+    {
+      "id": 2,
+      "name": "Maria Santos",
+      "role": "Estoque",
+      "shift": "Tarde",
+      "salary": 2400,
+      "active": true,
+      "phone": "(11)99999-2222"
+    },
+    {
+      "id": 3,
+      "name": "Joao Oliveira",
+      "role": "Gerente",
+      "shift": "Manha",
+      "salary": 4500,
+      "active": true,
+      "phone": "(11)99999-3333"
+    },
+    {
+      "id": 4,
+      "name": "Ana Costa",
+      "role": "Caixa",
+      "shift": "Noite",
+      "salary": 2200,
+      "active": true,
+      "phone": "(11)99999-4444"
+    },
+    {
+      "id": 5,
+      "name": "Pedro Souza",
+      "role": "Repositor",
+      "shift": "Manha",
+      "salary": 2000,
+      "active": false,
+      "phone": "(11)99999-5555"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123",
+      "name": "Administrador Geral",
+      "type": "admin",
+      "active": true
+    },
+    {
+      "id": 2,
+      "username": "func",
+      "password": "func123",
+      "name": "Funcionario Teste",
+      "type": "func",
+      "active": true
+    },
+    {
+      "id": 3,
+      "username": "cliente",
+      "password": "cli123",
+      "name": "Cliente Teste",
+      "type": "cliente",
+      "active": true
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "Joao Pereira",
+      "phone": "(11)98888-1001",
+      "cpf": "123.456.789-00",
+      "email": "joao@email.com",
+      "address": "Rua das Flores, 100 - SP",
+      "active": true,
+      "dogs": [
+        {
+          "name": "rex",
+          "breed": "Shitzu",
+          "age": 1,
+          "color": "",
+          "emoji": "🐶",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Ana Beatriz",
+      "phone": "(11)98888-1002",
+      "cpf": "987.654.321-00",
+      "email": "ana@email.com",
+      "address": "Av. Brasil, 200 - SP",
+      "active": true,
+      "dogs": [
+        {
+          "name": "Rex",
+          "breed": "Labrador",
+          "age": 3,
+          "color": "Dourado"
+        },
+        {
+          "name": "Luna",
+          "breed": "Poodle",
+          "age": 2,
+          "color": "Branco"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Carlos Mendes",
+      "phone": "(11)98888-1003",
+      "cpf": "456.789.123-00",
+      "email": "carlos@email.com",
+      "address": "Rua Augusta, 300 - SP",
+      "active": true,
+      "dogs": [
+        {
+          "name": "Thor",
+          "breed": "Bulldog",
+          "age": 4,
+          "color": "Marrom"
+        }
+      ]
+    },
+    {
+      "name": "juliano",
+      "phone": "62",
+      "cpf": "701",
+      "email": "d",
+      "address": "d",
+      "active": true,
+      "id": 4,
+      "dogs": [
+        {
+          "name": "cacau",
+          "breed": "pincher",
+          "age": 1,
+          "color": "d",
+          "emoji": "🐩",
+          "weight": 12
+        }
+      ]
+    },
+    {
+      "name": "Mariana",
+      "phone": "63",
+      "cpf": "56",
+      "email": "454",
+      "address": "4",
+      "active": true,
+      "id": 5,
+      "dogs": [
+        {
+          "name": "melo",
+          "breed": "pincher",
+          "age": 1,
+          "color": "caramelo",
+          "emoji": "🦮",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "name": "JAMES",
+      "phone": "92552",
+      "cpf": "75555",
+      "email": "JKJKJK",
+      "address": "5",
+      "active": true,
+      "dogs": [],
+      "id": 6
+    }
+  ],
+  "bathGrooming": [
+    {
+      "id": 1,
+      "clientId": 2,
+      "dogName": "Rex",
+      "service": "Banho e Tosa Completa",
+      "date": "2026-07-26T16:10:41.654Z",
+      "price": 120,
+      "status": "Concluido",
+      "notes": "Cachorro calmo",
+      "professional": "Maria Santos"
+    },
+    {
+      "id": 2,
+      "clientId": 2,
+      "dogName": "Luna",
+      "service": "Banho Simples",
+      "date": "2026-07-27T19:10:00.000Z",
+      "price": 60,
+      "status": "Concluido",
+      "notes": "Usar shampoo hipoalergenico",
+      "professional": "Ana Costa",
+      "paymentMethod": "Dinheiro",
+      "packageId": null
+    },
+    {
+      "id": 3,
+      "clientId": 3,
+      "dogName": "Thor",
+      "service": "Banho e Tosa Completa",
+      "date": "2026-07-29T16:10:41.654Z",
+      "price": 130,
+      "status": "Concluido",
+      "notes": "Cuidado com rolinho do focinho",
+      "professional": "Maria Santos",
+      "completedAt": "2026-07-28T17:34:22.964Z"
+    },
+    {
+      "clientId": 4,
+      "dogName": "cacau",
+      "service": "Banho Simples",
+      "date": "2026-07-28T20:29:00.000Z",
+      "professional": "Carlos Silva",
+      "price": 70,
+      "notes": "",
+      "paymentMethod": "Dinheiro",
+      "packageId": null,
+      "id": 4,
+      "status": "Concluido",
+      "completedAt": "2026-07-28T17:30:23.772Z"
+    },
+    {
+      "clientId": 4,
+      "dogName": "cacau",
+      "service": "Tosa Higienica",
+      "date": "2026-07-28T20:42:00.000Z",
+      "professional": "Carlos Silva",
+      "price": 150,
+      "notes": "",
+      "paymentMethod": "Cartao",
+      "packageId": null,
+      "id": 5,
+      "status": "Concluido",
+      "completedAt": "2026-07-28T17:43:22.277Z"
+    },
+    {
+      "clientId": 4,
+      "dogName": "cacau",
+      "service": "Tosa Higienica",
+      "date": "2026-07-28T20:49:00.000Z",
+      "professional": "Carlos Silva",
+      "price": 150,
+      "notes": "",
+      "paymentMethod": "Dinheiro",
+      "packageId": null,
+      "id": 6,
+      "status": "Concluido",
+      "creditDebited": false,
+      "completedAt": "2026-07-28T17:49:30.693Z"
+    },
+    {
+      "clientId": 5,
+      "dogName": "melo",
+      "service": "Tosa Completa",
+      "date": "2026-07-28T20:55:00.000Z",
+      "professional": "Joao Oliveira",
+      "price": 150,
+      "notes": "",
+      "paymentMethod": "Cartao",
+      "packageId": null,
+      "id": 7,
+      "status": "Concluido",
+      "creditDebited": false,
+      "completedAt": "2026-07-28T17:56:14.582Z"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "Banho Simples",
+      "price": 60,
+      "duration": 60,
+      "description": "Banho com shampoo neutro, secagem e penteado basico",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Banho e Tosa Completa",
+      "price": 120,
+      "duration": 120,
+      "description": "Banho, tosa higienica, corte de unhas e limpeza de ouvidos",
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Tosa Higienica",
+      "price": 70,
+      "duration": 60,
+      "description": "Tosa na regiao genital, patas e visao",
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "Tosa Completa",
+      "price": 90,
+      "duration": 90,
+      "description": "Tosa em todo o corpo conforme padrao da raca",
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "Corte de Unhas",
+      "price": 25,
+      "duration": 20,
+      "description": "Corte e lixamento de unhas",
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "Limpeza de Ouvidos",
+      "price": 20,
+      "duration": 15,
+      "description": "Limpeza e higienizacao dos ouvidos",
+      "active": true
+    },
+    {
+      "id": 7,
+      "name": "Lavagem Profunda",
+      "price": 80,
+      "duration": 75,
+      "description": "Lavagem com produtos especiais para pele sensivel",
+      "active": true
+    },
+    {
+      "id": 8,
+      "name": "Pacote VIP (Banho+Tosa+Unhas+Ouvidos)",
+      "price": 160,
+      "duration": 150,
+      "description": "Servico completo: banho, tosa, unhas e ouvidos",
+      "active": true
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "date": "2026-08-01T01:53:33.438Z",
+      "items": [
+        {
+          "productId": 93,
+          "name": "Bebedouro Filtrante 3L",
+          "price": 89.9,
+          "originalPrice": 89.9,
+          "qty": 1,
+          "subtotal": 89.9,
+          "emoji": "💧",
+          "unit": "un",
+          "isWeight": false
+        }
+      ],
+      "total": 89.9,
+      "payment": "pix",
+      "payments": [
+        {
+          "method": "pix",
+          "amount": 89.9
+        }
+      ],
+      "cashier": "Administrador Geral",
+      "clientId": null,
+      "status": "concluido"
+    },
+    {
+      "id": 2,
+      "date": "2026-08-01T01:54:24.018Z",
+      "items": [
+        {
+          "productId": 95,
+          "name": "Canivete Emergencia Pet",
+          "price": 29.9,
+          "originalPrice": 29.9,
+          "qty": 1,
+          "subtotal": 29.9,
+          "emoji": "🔧",
+          "unit": "un",
+          "isWeight": false
+        }
+      ],
+      "total": 29.9,
+      "payment": "pix",
+      "payments": [
+        {
+          "method": "pix",
+          "amount": 29.9
+        }
+      ],
+      "cashier": "Administrador Geral",
+      "clientId": null,
+      "status": "concluido"
+    },
+    {
+      "id": 3,
+      "date": "2026-08-01T15:07:15.522Z",
+      "items": [
+        {
+          "productId": 98,
+          "name": "Saco 25kg magnus todo dia",
+          "price": 7.5,
+          "originalPrice": 7.5,
+          "qty": 1.5,
+          "subtotal": 11.25,
+          "emoji": "🐕",
+          "unit": "kg",
+          "isWeight": true
+        }
+      ],
+      "total": 11.25,
+      "payment": "pix",
+      "payments": [
+        {
+          "method": "pix",
+          "amount": 11.25
+        }
+      ],
+      "cashier": "Administrador Geral",
+      "clientId": null,
+      "status": "concluido"
+    }
+  ],
+  "activityLog": [
+    {
+      "date": "2026-08-03T22:45:54.241Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-03T22:45:17.803Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T15:56:49.136Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T15:09:05.039Z",
+      "user": "Administrador Geral",
+      "action": "PRODUTO_EDITADO",
+      "detail": "Produto: Graneu magnus todo dia"
+    },
+    {
+      "date": "2026-08-01T15:07:15.525Z",
+      "user": "Administrador Geral",
+      "action": "VENDA",
+      "detail": "Venda #3 finalizada — R$ 11,25 via 📱 R$ 11,25"
+    },
+    {
+      "date": "2026-08-01T15:05:30.431Z",
+      "user": "Administrador Geral",
+      "action": "PRODUTO_EDITADO",
+      "detail": "Produto: Saco 25kg magnus todo dia"
+    },
+    {
+      "date": "2026-08-01T14:51:56.530Z",
+      "user": "Administrador Geral",
+      "action": "PRODUTO_CRIADO",
+      "detail": "Produto: Saco 25kg magnus todo dia — R$ 145,00"
+    },
+    {
+      "date": "2026-08-01T14:49:21.042Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T14:49:04.771Z",
+      "user": "Administrador Geral",
+      "action": "PRODUTO_CRIADO",
+      "detail": "Produto: Saco 15kg magnus todo dia — R$ 150,00"
+    },
+    {
+      "date": "2026-08-01T14:44:13.768Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T14:44:01.250Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T14:41:03.374Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T14:39:42.691Z",
+      "user": "Funcionario Teste",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T14:39:08.412Z",
+      "user": "Administrador Geral",
+      "action": "PERMISSOES_SALVAS",
+      "detail": "Permissoes de acesso atualizadas para todos os tipos de usuario"
+    },
+    {
+      "date": "2026-08-01T14:38:56.384Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T14:30:43.923Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T14:30:23.709Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T14:02:09.702Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T14:00:15.940Z",
+      "user": "Administrador Geral",
+      "action": "PRECO_AUMENTO_MASSA",
+      "detail": "Aumento de 10% aplicado a 96 produtos"
+    },
+    {
+      "date": "2026-08-01T13:59:37.111Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T13:54:37.593Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T13:53:02.986Z",
+      "user": "Administrador Geral",
+      "action": "CLIENTES_IMPORTADOS",
+      "detail": "1 clientes importados via TXT"
+    },
+    {
+      "date": "2026-08-01T13:50:12.316Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T13:46:28.015Z",
+      "user": "Administrador Geral",
+      "action": "CLIENTES_EXPORTADOS",
+      "detail": "Relatorio TXT gerado — 5 clientes"
+    },
+    {
+      "date": "2026-08-01T13:46:06.070Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T13:38:34.778Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:54:24.022Z",
+      "user": "Administrador Geral",
+      "action": "VENDA",
+      "detail": "Venda #2 finalizada — R$ 29,90 via 📱 R$ 29,90"
+    },
+    {
+      "date": "2026-08-01T01:53:33.442Z",
+      "user": "Administrador Geral",
+      "action": "VENDA",
+      "detail": "Venda #1 finalizada — R$ 89,90 via 📱 R$ 89,90"
+    },
+    {
+      "date": "2026-08-01T01:52:59.753Z",
+      "user": "Administrador Geral",
+      "action": "SETTINGS_SALVO",
+      "detail": "Configuracoes PIX atualizadas"
+    },
+    {
+      "date": "2026-08-01T01:51:37.479Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:51:34.407Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:51:05.715Z",
+      "user": "Administrador Geral",
+      "action": "CLIENTES_EXPORTADOS",
+      "detail": "Relatorio TXT gerado — 5 clientes"
+    },
+    {
+      "date": "2026-08-01T01:50:27.497Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:47:11.414Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:41:31.198Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:40:46.610Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:40:00.884Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:39:56.247Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:39:49.368Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:38:33.741Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:31:33.333Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:30:02.859Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:27:18.224Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:24:46.195Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:20:30.635Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:16:23.796Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T01:08:08.060Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T00:13:17.181Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-08-01T00:01:00.537Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-31T23:55:39.006Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-31T23:50:43.326Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-31T23:45:09.194Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-31T23:44:08.561Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-31T23:43:43.254Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-31T23:42:05.299Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-31T23:17:48.030Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-31T23:12:05.904Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-31T23:06:49.878Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-31T23:01:37.786Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-28T17:58:30.600Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-28T17:56:14.582Z",
+      "user": "Administrador Geral",
+      "action": "BATH_CONCLUIDO",
+      "detail": "melo — Tosa Completa — R$ 150,00"
+    },
+    {
+      "date": "2026-07-28T17:56:06.295Z",
+      "user": "Administrador Geral",
+      "action": "PACOTE_CRIADO",
+      "detail": "Pacote: Banho Simples — 6 sessoes — Cliente: Mariana"
+    },
+    {
+      "date": "2026-07-28T17:55:31.518Z",
+      "user": "Administrador Geral",
+      "action": "BATH_CRIADO",
+      "detail": "Agendamento: melo — Tosa Completa — R$ 150,00 — Cartao"
+    },
+    {
+      "date": "2026-07-28T17:55:09.399Z",
+      "user": "Administrador Geral",
+      "action": "PET_CRIADO",
+      "detail": "melo (pincher) — Cliente: Mariana"
+    },
+    {
+      "date": "2026-07-28T17:54:44.998Z",
+      "user": "Administrador Geral",
+      "action": "CLIENTE_CRIADO",
+      "detail": "Cliente: Mariana — 63"
+    },
+    {
+      "date": "2026-07-28T17:49:55.079Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-28T17:49:30.693Z",
+      "user": "Administrador Geral",
+      "action": "BATH_CONCLUIDO",
+      "detail": "cacau — Tosa Higienica — R$ 150,00"
+    },
+    {
+      "date": "2026-07-28T17:49:26.758Z",
+      "user": "Administrador Geral",
+      "action": "BATH_CRIADO",
+      "detail": "Agendamento: cacau — Tosa Higienica — R$ 150,00 — Dinheiro"
+    },
+    {
+      "date": "2026-07-28T17:43:22.277Z",
+      "user": "Administrador Geral",
+      "action": "BATH_CONCLUIDO",
+      "detail": "cacau — Tosa Higienica — R$ 150,00"
+    },
+    {
+      "date": "2026-07-28T17:43:10.573Z",
+      "user": "Administrador Geral",
+      "action": "BATH_CRIADO",
+      "detail": "Agendamento: cacau — Tosa Higienica — R$ 150,00 — Cartao"
+    },
+    {
+      "date": "2026-07-28T17:40:37.846Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-28T17:34:22.964Z",
+      "user": "Administrador Geral",
+      "action": "BATH_CONCLUIDO",
+      "detail": "Thor — Banho e Tosa Completa — R$ 130,00"
+    },
+    {
+      "date": "2026-07-28T17:34:14.389Z",
+      "user": "Administrador Geral",
+      "action": "BATH_INICIADO",
+      "detail": "Thor — Banho e Tosa Completa"
+    },
+    {
+      "date": "2026-07-28T17:34:00.047Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-28T17:31:23.132Z",
+      "user": "Administrador Geral",
+      "action": "BATH_EDITADO",
+      "detail": "Agendamento: Luna — Banho Simples"
+    },
+    {
+      "date": "2026-07-28T17:30:23.772Z",
+      "user": "Administrador Geral",
+      "action": "BATH_CONCLUIDO",
+      "detail": "cacau — Banho Simples — R$ 70,00"
+    },
+    {
+      "date": "2026-07-28T17:30:08.420Z",
+      "user": "Administrador Geral",
+      "action": "PACOTE_CRIADO",
+      "detail": "Pacote: Banho e Tosa Completa — 5 sessoes — Cliente: juliano"
+    },
+    {
+      "date": "2026-07-28T17:29:27.245Z",
+      "user": "Administrador Geral",
+      "action": "BATH_CRIADO",
+      "detail": "Agendamento: cacau — Banho Simples — R$ 70,00 — Dinheiro"
+    },
+    {
+      "date": "2026-07-28T16:46:34.018Z",
+      "user": "Administrador Geral",
+      "action": "PET_CRIADO",
+      "detail": "cacau (pincher) — Cliente: juliano"
+    },
+    {
+      "date": "2026-07-28T16:46:10.498Z",
+      "user": "Administrador Geral",
+      "action": "CLIENTE_CRIADO",
+      "detail": "Cliente: juliano — 62"
+    },
+    {
+      "date": "2026-07-28T16:45:09.666Z",
+      "user": "Administrador Geral",
+      "action": "PET_CRIADO",
+      "detail": "rex (Shitzu) — Cliente: Joao Pereira"
+    },
+    {
+      "date": "2026-07-28T16:43:28.817Z",
+      "user": "Administrador Geral",
+      "action": "PACOTE_CRIADO",
+      "detail": "Pacote: Banho Simples — 5 sessoes — Cliente: Joao Pereira"
+    },
+    {
+      "date": "2026-07-28T16:41:37.036Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-28T16:24:38.470Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    },
+    {
+      "date": "2026-07-28T16:12:47.244Z",
+      "user": "Administrador Geral",
+      "action": "PRODUTO_CRIADO",
+      "detail": "Produto: Veja — R$ 1,30"
+    },
+    {
+      "date": "2026-07-28T16:10:49.048Z",
+      "user": "Administrador Geral",
+      "action": "LOGIN",
+      "detail": "Usuario logado no sistema"
+    }
+  ],
+  "nextProductId": 99,
+  "nextEmployeeId": 6,
+  "nextUserId": 4,
+  "nextSaleId": 4,
+  "nextClientId": 7,
+  "nextBathId": 8,
+  "nextServiceId": 9,
+  "nextPackageId": 4,
+  "nextExpenseId": 1,
+  "expenses": [],
+  "waitingList": [],
+  "clientPackages": [
+    {
+      "id": 1,
+      "clientId": 1,
+      "serviceName": "Banho Simples",
+      "totalCredits": 5,
+      "usedCredits": 0,
+      "price": 300,
+      "purchaseDate": "2026-07-28T16:43:28.817Z",
+      "expiryDate": "2026-10-30T00:00:00.000Z",
+      "notes": "",
+      "active": true
+    },
+    {
+      "id": 2,
+      "clientId": 4,
+      "serviceName": "Banho e Tosa Completa",
+      "totalCredits": 5,
+      "usedCredits": 0,
+      "price": 600,
+      "purchaseDate": "2026-07-28T17:30:08.420Z",
+      "expiryDate": "2026-09-28T00:00:00.000Z",
+      "notes": "",
+      "active": true
+    },
+    {
+      "id": 3,
+      "clientId": 5,
+      "serviceName": "Banho Simples",
+      "totalCredits": 6,
+      "usedCredits": 0,
+      "price": 300,
+      "purchaseDate": "2026-07-28T17:56:06.295Z",
+      "expiryDate": "2026-09-28T00:00:00.000Z",
+      "notes": "",
+      "active": true
+    }
+  ],
+  "settings": {
+    "pixKey": "70122732162",
+    "pixName": "PetShop Prado",
+    "pixCity": "Anapolis",
+    "userPermissions": {
+      "admin": {
+        "dashboard": true,
+        "pdv": true,
+        "calculator": true,
+        "products": true,
+        "stock": true,
+        "expiryreport": true,
+        "employees": true,
+        "users": true,
+        "categories": true,
+        "pricetags": true,
+        "clients": true,
+        "bathgrooming": true,
+        "services": true,
+        "packages": true,
+        "sales": true,
+        "expenses": true,
+        "reports": true,
+        "company": true,
+        "activitylog": true,
+        "dbconfig": true,
+        "backup": true,
+        "settings": true,
+        "permissions": true,
+        "bulkpriceincrease": true
+      },
+      "func": {
+        "dashboard": true,
+        "pdv": true,
+        "calculator": true,
+        "products": true,
+        "stock": true,
+        "expiryreport": true,
+        "employees": false,
+        "users": false,
+        "categories": true,
+        "pricetags": true,
+        "clients": true,
+        "bathgrooming": true,
+        "services": true,
+        "packages": true,
+        "sales": true,
+        "expenses": false,
+        "reports": false,
+        "company": false,
+        "activitylog": false,
+        "dbconfig": false,
+        "backup": false,
+        "settings": false,
+        "permissions": false,
+        "bulkpriceincrease": false
+      },
+      "cliente": {
+        "dashboard": false,
+        "pdv": true,
+        "calculator": true,
+        "products": false,
+        "stock": false,
+        "expiryreport": false,
+        "employees": false,
+        "users": false,
+        "categories": false,
+        "pricetags": false,
+        "clients": false,
+        "bathgrooming": false,
+        "services": false,
+        "packages": false,
+        "sales": false,
+        "expenses": false,
+        "reports": false,
+        "company": false,
+        "activitylog": false,
+        "dbconfig": false,
+        "backup": false,
+        "settings": false,
+        "permissions": false,
+        "bulkpriceincrease": false
+      }
+    },
+    "company": {}
+  }
+}

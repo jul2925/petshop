@@ -1,0 +1,7 @@
+node_modules/
+cert.pem
+key.pem
+shared_data.json
+*.rar
+*.log
+.env
