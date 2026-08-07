@@ -169,29 +169,35 @@
     }
   };
 
-  // Load from server or localStorage
-  var DB_VERSION=8;
+  var DB_VERSION=9;
   var saved=localStorage.getItem('petshoppradoDB');
   var savedVer=parseInt(localStorage.getItem('petshoppradoDBVer'))||0;
   if(saved&&savedVer>=DB_VERSION){try{DB=JSON.parse(saved)}catch(e){}}
-  // Try loading from shared server (sync via XMLHttpRequest to avoid login race)
-  (function(){
-    try{
-      var xhr=new XMLHttpRequest();
-      xhr.open('GET','/api/load',false);
-      xhr.send();
-      if(xhr.status===200){
-        var d=JSON.parse(xhr.responseText);
-        if(d&&d.products){
-          DB=d;
-          localStorage.setItem('petshoppradoDB',JSON.stringify(DB));
-          localStorage.setItem('petshoppradoDBVer',DB_VERSION);
-        }
+
+  // Carrega do servidor
+  var isSaving=false;
+  var lastServerVersion=0;
+
+  function loadFromServer(callback){
+    fetch('/api/load').then(function(r){return r.json()}).then(function(d){
+      if(d&&d.products){
+        DB=d;
+        localStorage.setItem('petshoppradoDB',JSON.stringify(DB));
+        localStorage.setItem('petshoppradoDBVer',DB_VERSION);
+        if(callback)callback(true);
+      }else{
+        if(callback)callback(false);
       }
-    }catch(e){}
+    }).catch(function(){if(callback)callback(false)});
+  }
+
+  // Carrega inicial do servidor
+  (function(){
+    loadFromServer(function(ok){
+      if(!ok)console.warn('[DB] Servidor indisponivel, usando dados locais');
+    });
   })();
 
-  // Garantir que campos obrigatorios existam
   if(!DB.clientPackages)DB.clientPackages=[];
   if(!DB.waitingList)DB.waitingList=[];
   if(!DB.expenses)DB.expenses=[];
@@ -200,45 +206,84 @@
 
   // SSE - Sincronizacao em tempo real
   var sseConnection=null;
-  var isSaving=false;
+  var sseRetryCount=0;
+  var pollingInterval=null;
+
   function connectSSE(){
     if(sseConnection){sseConnection.close()}
     try{
       sseConnection=new EventSource('/api/events');
+      sseRetryCount=0;
       sseConnection.addEventListener('connected',function(e){
         console.log('[SSE] Conectado ao servidor');
+        stopPolling();
       });
       sseConnection.addEventListener('update',function(e){
         if(isSaving)return;
         try{
           var data=JSON.parse(e.data);
           console.log('[SSE] Atualizacao recebida (v'+data.version+')');
-          var xhr=new XMLHttpRequest();
-          xhr.open('GET','/api/load',false);
-          xhr.send();
-          if(xhr.status===200){
-            var d=JSON.parse(xhr.responseText);
-            if(d&&d.products){
-              DB=d;
+          fetch('/api/sync?v='+lastPollVersion).then(function(r){return r.json()}).then(function(s){
+            if(s.updated&&s.data){
+              DB=s.data;
               localStorage.setItem('petshoppradoDB',JSON.stringify(DB));
               localStorage.setItem('petshoppradoDBVer',DB_VERSION);
+              lastPollVersion=s.version||0;
               renderPage();
-              toast('Dados atualizados por outro dispositivo!','info');
+              toast('Dados atualizados!','info');
             }
-          }
+          }).catch(function(){
+            loadFromServer(function(ok){
+              if(ok){renderPage();toast('Dados atualizados!','info');}
+            });
+          });
         }catch(ex){}
       });
       sseConnection.onerror=function(){
-        console.warn('[SSE] Erro na conexao, reconectando em 3s...');
+        console.warn('[SSE] Erro, reconectando...');
         sseConnection.close();
-        setTimeout(connectSSE,3000);
+        sseRetryCount++;
+        if(sseRetryCount<5){
+          setTimeout(connectSSE,3000);
+        }else{
+          console.warn('[SSE] Maximo de tentativas, iniciando polling');
+          startPolling();
+        }
       };
     }catch(e){
       console.warn('[SSE] Nao foi possivel conectar:',e);
-      setTimeout(connectSSE,5000);
+      startPolling();
     }
   }
+
+  // Polling como fallback (para Render free tier)
+  var lastPollVersion=0;
+  function startPolling(){
+    if(pollingInterval)return;
+    console.log('[POLL] Iniciando polling a cada 10s');
+    pollingInterval=setInterval(function(){
+      if(isSaving)return;
+      fetch('/api/sync?v='+lastPollVersion).then(function(r){return r.json()}).then(function(s){
+        if(s.updated&&s.data){
+          DB=s.data;
+          localStorage.setItem('petshoppradoDB',JSON.stringify(DB));
+          localStorage.setItem('petshoppradoDBVer',DB_VERSION);
+          lastPollVersion=s.version||0;
+          renderPage();
+          toast('Dados atualizados!','info');
+        }else{
+          lastPollVersion=s.version||lastPollVersion;
+        }
+      }).catch(function(){});
+    },10000);
+  }
+
+  function stopPolling(){
+    if(pollingInterval){clearInterval(pollingInterval);pollingInterval=null;}
+  }
+
   connectSSE();
+  startPolling();
 
   function saveDB(){
     var payload=JSON.stringify(DB);
@@ -246,8 +291,13 @@
     localStorage.setItem('petshoppradoDBVer',DB_VERSION);
     isSaving=true;
     fetch('/api/save',{method:'POST',headers:{'Content-Type':'application/json'},body:payload})
-      .then(function(){isSaving=false})
-      .catch(function(){isSaving=false});
+      .then(function(r){return r.json()}).then(function(d){
+        isSaving=false;
+        if(d&&d.version){
+          lastPollVersion=d.version;
+          lastServerVersion=d.version;
+        }
+      }).catch(function(){isSaving=false});
   }
 
   // ===== STATE =====

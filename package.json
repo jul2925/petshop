@@ -1,24 +1,16 @@
 {
   "name": "petshop-prado",
   "version": "2.0.0",
-  "description": "Sistema PetShop Prado - Backend com MongoDB para Render",
+  "description": "PetShop Prado - Sistema completo",
   "main": "server.js",
   "engines": {
     "node": ">=18.0.0"
   },
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
-    "seed": "node seed.js",
-    "seed:reset": "node seed.js --reset"
+    "start": "node server.js"
   },
   "dependencies": {
     "mongodb": "^6.12.0",
     "dotenv": "^16.4.7"
-  },
-  "optionalDependencies": {
-    "node-forge": "^1.4.0",
-    "selfsigned": "^5.5.0",
-    "systray2": "^2.1.4"
   }
 }
