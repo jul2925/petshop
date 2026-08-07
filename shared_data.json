@@ -1453,18 +1453,6 @@
   ],
   "activityLog": [
     {
-      "date": "2026-08-03T22:45:54.241Z",
-      "user": "Administrador Geral",
-      "action": "LOGIN",
-      "detail": "Usuario logado no sistema"
-    },
-    {
-      "date": "2026-08-03T22:45:17.803Z",
-      "user": "Administrador Geral",
-      "action": "LOGIN",
-      "detail": "Usuario logado no sistema"
-    },
-    {
       "date": "2026-08-01T15:56:49.136Z",
       "user": "Administrador Geral",
       "action": "LOGIN",

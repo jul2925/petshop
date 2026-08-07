@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: petshop-prado
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGO_MODE
+        value: atlas
+      - key: MONGO_DB_NAME
+        value: petshop_prado
+      - key: MONGO_ATLAS_URI
+        sync: false
+      - key: NODE_ENV
+        value: production
