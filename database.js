@@ -274,7 +274,8 @@
             self.handleLoadedText(text, callback);
           });
       } else if (this.config.type === 'remote') {
-        fetch(this.config.url)
+        var baseUrl = this.config.url.replace(/\/+$/, '');
+        fetch(baseUrl + '/api/load')
           .then(function(res) {
             if (!res.ok) throw new Error("API retornou código de erro " + res.status);
             return res.text();
@@ -388,7 +389,8 @@
           }
         });
       } else if (this.config.type === 'remote') {
-        fetch(this.config.url, {
+        var baseUrl = this.config.url.replace(/\/+$/, '');
+        fetch(baseUrl + '/api/save', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

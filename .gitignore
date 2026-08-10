@@ -1,6 +1,18 @@
+# Dependencias
 node_modules/
-cert.pem
-key.pem
-*.rar
+
+# Backup
+*.bak
+
+# Certificados (nao commite)
+*.pem
+
+# Env local
+.env.local
+
+# Logs
 *.log
-.env
+
+# Build
+dist/
+build/
