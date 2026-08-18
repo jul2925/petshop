@@ -6,35 +6,40 @@
   <title>PetShop Prado — Sistema de PetShop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=5">
-    <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="icon" type="image/png" href="icon.png">
 </head>
 <body>
 
 <!-- ===== LOGIN PAGE ===== -->
 <div id="loginPage">
   <div class="login-card">
-    <div class="logo">
-      <h1>🐾 PetShop Prado</h1>
-      <p>Sistema de PetShop</p>
+    <div class="logo" id="loginLogo">
+      <div id="loginLogoImg"></div>
+      <h1 id="loginLogoText">PetShop Prado</h1>
+      <p id="loginLogoSub">Sistema de PetShop</p>
     </div>
     <label>Usuario</label>
     <input type="text" id="loginUser" placeholder="Digite seu usuario" autocomplete="username">
     <label>Senha</label>
-    <input type="password" id="loginPass" placeholder="Digite sua senha" autocomplete="current-password">
+    <div style="position:relative">
+      <input type="password" id="loginPass" placeholder="Digite sua senha" autocomplete="current-password" style="padding-right:40px">
+      <button type="button" onclick="toggleLoginPass()" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--txt2);padding:4px" title="Mostrar/Ocultar senha"><i data-lucide="eye" id="loginPassIcon" style="width:18px;height:18px"></i></button>
+    </div>
     <button class="login-btn" id="loginBtn">Entrar</button>
   </div>
 </div>
 
 <!-- ===== APP PAGE ===== -->
 <div id="appPage">
-  <button class="mobile-menu" id="mobileMenuBtn">☰</button>
+  <button class="mobile-menu" id="mobileMenuBtn"><i data-lucide="menu"></i></button>
   <div class="app-layout">
     <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
-      <div class="sidebar-brand">
-        <h2>🐾 PetShop Prado</h2>
-        <small>Sistema de PetShop</small>
+      <div class="sidebar-brand" id="sidebarBrand">
+        <div id="sidebarLogoImg"></div>
+        <h2 id="sidebarLogoText">PetShop Prado</h2>
+        <small id="sidebarLogoSub">Sistema de PetShop</small>
       </div>
       <nav class="sidebar-nav" id="sidebarNav"></nav>
       <div class="sidebar-user">
@@ -43,7 +48,7 @@
           <div class="user-name" id="userName">Admin</div>
           <div class="user-role" id="userRole">Administrador</div>
         </div>
-        <button class="logout-btn" id="logoutBtn" title="Sair">⏻</button>
+        <button class="logout-btn" id="logoutBtn" title="Sair"><i data-lucide="log-out"></i></button>
       </div>
     </aside>
 
@@ -55,7 +60,7 @@
 <!-- MODALS -->
 <div class="modal-bg" id="modalBg">
   <div class="modal" id="modalBox">
-    <div class="modal-head"><h3 id="modalTitle"></h3><button class="modal-x" id="modalX">✕</button></div>
+      <div class="modal-head"><h3 id="modalTitle"></h3><button class="modal-x" id="modalX"><i data-lucide="x"></i></button></div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-foot" id="modalFoot"></div>
   </div>
@@ -63,9 +68,10 @@
 
 <div id="toastBox"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.min.js"></script>
+  <script src="quagga.min.js"></script>
+  <script src="lucide.min.js"></script>
 <script src="database.js"></script>
-<script src="app.js?v=6"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>
 

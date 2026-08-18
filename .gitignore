@@ -4,11 +4,19 @@ node_modules/
 # Backup
 *.bak
 
+# Backups automaticos e segredo de autenticacao
+backups/
+.auth_secret
+
 # Certificados (nao commite)
 *.pem
 
 # Env local
+.env
 .env.local
+
+# Dados locais do banco (sincronizado com MongoDB)
+shared_data.json
 
 # Logs
 *.log
@@ -16,3 +24,7 @@ node_modules/
 # Build
 dist/
 build/
+
+# Atalhos e configuracoes Windows
+*.lnk
+Brother*
